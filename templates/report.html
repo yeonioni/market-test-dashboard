@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Meta + GA 통합 리포트</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', 'Pretendard', sans-serif;
+            background-color: #f8f9fa;
+            padding: 40px;
+            color: #333;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px 16px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #2c3e50;
+            color: #fff;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f4f6;
+        }
+
+        tr:hover {
+            background-color: #e9f5ff;
+        }
+
+        td {
+            font-size: 14px;
+        }
+
+        .small-text {
+            font-size: 12px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <h2>📊 Meta + GA 통합 리포트</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>캠페인명</th>
+                <th>GA 경로</th>
+                <th>구매 클릭수<br><span class="small-text">(수동)</span></th>
+                <th>클릭수</th>
+                <th>도달수</th>
+                <th>세션수</th>
+                <th>참여 세션수<br><span class="small-text">(10초 이상)</span></th>
+                <th>총 사용자수</th>
+                <th>고객 유입율 (%)</th>
+                <th>구매 전환율 (%)</th>
+                <th>잔류율 (%)</th>
+                <th>설문 응답율 (%)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in merged %}
+            <tr>
+                <td>{{ row.campaign }}</td>
+                <td>{{ row.pagePath }}</td>
+                <td>{{ row.purchaseClicks }}</td>
+                <td>{{ row.clicks }}</td>
+                <td>{{ row.reach }}</td>
+                <td>{{ row.sessions }}</td>
+                <td>{{ row.engagedSessions }}</td>
+                <td>{{ row.totalUsers }}</td>
+                <td>{{ row.inflowRate }}</td>
+                <td>{{ row.purchaseRate }}</td>
+                <td>{{ row.stayRate }}</td>
+                <td>{{ row.surveyRate }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

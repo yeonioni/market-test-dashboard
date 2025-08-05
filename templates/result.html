@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>매칭 결과</title></head>
+<body>
+    <h2>{{ keyword }} 매칭 결과</h2>
+    <ul>
+        {% for campaign, ga in matched_data.items() %}
+            <li><strong>{{ campaign }}</strong> → {{ ga }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

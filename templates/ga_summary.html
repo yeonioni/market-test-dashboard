@@ -1,0 +1,12 @@
+<h2>GA 경로별 요약</h2>
+<table border="1">
+    <tr><th>경로</th><th>참여세션</th><th>세션</th><th>사용자 수</th></tr>
+    {% for row in data %}
+    <tr>
+        <td>{{ row.pagePath }}</td>
+        <td>{{ row.engagedSessions }}</td>
+        <td>{{ row.sessions }}</td>
+        <td>{{ row.totalUsers }}</td>
+    </tr>
+    {% endfor %}
+</table>
